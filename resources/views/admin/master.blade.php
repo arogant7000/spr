@@ -62,7 +62,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="/admin">
                             <img src="images/icon/" alt="" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -81,7 +81,7 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href="/admin/meeting/">Data Rapat</a>
                                 </li>
                             </ul>
                     </ul>
@@ -93,7 +93,7 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="/admin">
                     <img src="images/icon/" alt="" />
                 </a>
             </div>
@@ -105,7 +105,7 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href="/admin/meeting/">Data Rapat</a>
                                 </li>
                             </ul>
                         </li>
@@ -220,8 +220,9 @@
         </div>
 
     </div>
-    
-    
+  
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
     
     <!-- Jquery JS-->
     <script src="{{ asset('vendor/jquery-3.2.1.min.js')}}"></script>

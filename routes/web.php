@@ -22,9 +22,9 @@ Route::group(['middleware'=> ['auth']], function(){
 
 Route::get('admin/', 'AppController@indexAdmin');
 
-Route::resource('admin/meetings', 'MeetingController', [
+Route::resource('admin/meeting', 'MeetingController', [
 	'except' => ['create']
 ]);
-Route::get('api/meetings', 'MeetingController@apiMeetings')->name('api.meetings');
+Route::get('api/meeting', 'MeetingController@apiMeetings')->name('api.meeting');
 
 });
