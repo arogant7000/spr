@@ -15,7 +15,7 @@ class CreateMeetingsTable extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->increments('id_meeting');
-            $table->integer('perihal')->unsigned()->nullable();
+            $table->string('perihal');
             $table->string('tempat');
             $table->timestamp('waktu');
             $table->timestamps();

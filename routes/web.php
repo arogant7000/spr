@@ -25,6 +25,5 @@ Route::get('admin/', 'AppController@indexAdmin');
 Route::resource('admin/meeting', 'MeetingController', [
 	'except' => ['create']
 ]);
-Route::get('api/meeting', 'MeetingController@apiMeetings')->name('api.meeting');
 
 });

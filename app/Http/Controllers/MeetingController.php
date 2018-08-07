@@ -16,7 +16,10 @@ class MeetingController extends Controller
      */
     public function index()
     {   
-               return view('admin/meeting/index');
+
+        $meeting  = Meeting::all();
+
+               return view('admin/meeting/index')->withMeeting($meeting);
     }
 
     /**
@@ -108,20 +111,4 @@ class MeetingController extends Controller
         ]);
     }
 
-    public function apiMeetings()
-    {
-        $meeting = Meeting::all();
-
-        return Datatables::of($meeting)
-            ->addColumn('action', function($meeting){
-                return 
-                    ' <a href="" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Show</a> ' .
-                    ' <a class="btn btn-primary btn-xs" onclick="editForm('. $meeting->id_meeting .')"><i class="glyphicon glyphicon-edit"></i> Edit</a> ' .
-                    ' <a class="btn btn-danger btn-xs" onclick="deleteData('. $meeting->id_meeting .')"><i class="glyphicon glyphicon-trash"></i> Delete</a> ';
-            })
-            ->editColumn('perihal', '{{$perihal}}')
-            ->editColumn('tempat', '{{$tempat}}')
-            ->editColumn('waktu', 'Rp. {{$waktu}}')
-            ->make(true);
-    }
 }
