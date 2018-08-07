@@ -2,24 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
     <meta name="csrf-token" content="{{ csrf_token() }}"
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>@yield('title')</title>
 
 
-    <link rel="shortcut icon" href="{{ asset('img/logo.png')}}">
-
-
-    
-    <!-- Bootstrap -->
-    <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
-    
-
-    <link rel="stylesheet" href="{{ asset('css/timepicki.css')}}"/>
     {{-- dataTables --}}
     <link href="{{ asset('assets/datatables/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
 
@@ -27,22 +21,28 @@
       <script src="{{ asset('assets/sweetalert2/sweetalert2.min.js') }}"></script>
       <link href="{{ asset('assets/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="{{ asset('assets/bootstrap/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('assets/bootstrap/css/navbar-fixed-top.css') }}" rel="stylesheet">
+    <!-- Fontfaces CSS-->
+    <link href="{{ asset('css/font-face.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="{{ asset('assets/bootstrap/js/ie-emulation-modes-warning.js') }}"></script>
+    <!-- Bootstrap CSS-->
+    <link href="{{ asset('vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Vendor CSS-->
+    <link href="{{ asset('vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/wow/animate.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/css-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/slick/slick.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
+    <link href="{{ asset('vendor/vector-map/jqvmap.min.css')}}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{{ asset('css/theme.css')}}" rel="stylesheet" media="all">
 
     @yield('styles')
 
@@ -55,127 +55,197 @@
 
 </head>
 
-<body>
-    <!-- Navbar -->
-    <div class="container">
-        <nav class="navbar navbar-default navbar-fixed-top ">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                        aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{{ url('admin/')}}">
-                        <img src="{{ asset('img/logo.png')}}" class="img-responsive img-logo">
-                    </a>
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <img src="images/icon/" alt="" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
                 </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="index.html">Dashboard 1</a>
+                                </li>
+                            </ul>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <i class="glyphicon glyphicon-user"></i>
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/icon/" alt="" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="#">Profile</a>
-                                </li>
-                                <li>
-                                    <a href="#">Ganti Password</a>
-                                </li>
-                                <li role="separator" class="divider"></li>
-                                <li>
-                                    <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
-                                        onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
+                                    <a href="index.html">Dashboard 1</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="{{ url('admin/diskon/')}}">
-                                <i class="glyphicon glyphicon-user"></i> Diskon
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('admin/pemesanan/')}}">
-                                <i class="glyphicon glyphicon-user"></i> Pemesanan
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('admin/pemesan/')}}">
-                                <i class="glyphicon glyphicon-user"></i> Pemesan
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('admin/shift/')}}">
-                                <i class="glyphicon glyphicon-user"></i> Shift
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="glyphicon glyphicon-user"></i> Pembayaran
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="glyphicon glyphicon-user"></i> Cetak Laporan
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="glyphicon glyphicon-user"></i> Grafik
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="glyphicon glyphicon-user"></i> Data Karyawan
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+                </nav>
             </div>
-            <!-- /.container-fluid -->
-        </nav>
-    </div>
-    <!-- end navbar -->
+        </aside>
+        <!-- END MENU SIDEBAR-->
 
-     @yield('content')
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" action="" method="POST">
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Cari..." />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                            <div class="header-button">
+                                <div class="noti-wrap">
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-notifications"></i>
+                                        <span class="quantity">1</span>
+                                        <div class="notifi-dropdown js-dropdown">
+                                            <div class="notifi__title">
+                                                <p>Anda Mempunyai 1 Pemberitahuan</p>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c1 img-cir img-40">
+                                                    <i class="zmdi zmdi-email-open"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>Jadwal Rapat terbaru di buat</p>
+                                                    <span class="date">27 Agustus 2018 06:50</span>
+                                                </div>
+                                            </div>
+                                           
+                                            
+                                            <div class="notifi__footer">
+                                                <a href="#">All notifications</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="images/icon/" alt="" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">Mulia Ichsan</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="images/icon/" alt="" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">Mulia Ichsan</a>
+                                                    </h5>
+                                                    <span class="email">ichsan.mulya@outlook.com</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h3> &copy; Design with
-                        <i class="glyphicon glyphicon-heart"></i> by
-                        <a href="">Ichsan Mulya</a>
-                        </h2>
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        
+                        @yield('content')               
+                        
+                       
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 Mulia Ichsan. All rights reserved. Template by <a href="/">Mulia Ichsan</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
         </div>
-    </footer>
-    <!-- End Footer -->
 
+    </div>
+    
+    
+    
+    <!-- Jquery JS-->
+    <script src="{{ asset('vendor/jquery-3.2.1.min.js')}}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{{ asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
+    <script src="{{ asset('vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+    <!-- Vendor JS       -->
+    <script src="{{ asset('vendor/slick/slick.min.js')}}">
+    </script>
+    <script src="{{ asset('vendor/wow/wow.min.js')}}"></script>
+    <script src="{{ asset('vendor/animsition/animsition.min.js')}}"></script>
+    <script src="{{ asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
+    </script>
+    <script src="{{ asset('vendor/counter-up/jquery.waypoints.min.js')}}"></script>
+    <script src="{{ asset('vendor/counter-up/jquery.counterup.min.js')}}">
+    </script>
+    <script src="{{ asset('vendor/circle-progress/circle-progress.min.js')}}"></script>
+    <script src="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{ asset('vendor/chartjs/Chart.bundle.min.js')}}"></script>
+    <script src="{{ asset('vendor/select2/select2.min.js')}}">
+    </script>
 
-    <script src="{{ asset('js/jquery-3.2.1.min.js')}}"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('js/script.js')}}"></script>
-
+    <!-- Main JS-->
+    <script src="{{ asset('js/main.js')}}"></script>
 
     {{-- dataTables --}}
     <script src="{{ asset('assets/dataTables/js/jquery.dataTables.min.js') }}"></script>
@@ -183,12 +253,9 @@
 
     {{-- Validator --}}
     <script src="{{ asset('assets/validator/validator.min.js') }}"></script>
-
-
     <!-- SCRIPTS -->
     @yield('script')
-
-
 </body>
 
 </html>
+<!-- end document-->

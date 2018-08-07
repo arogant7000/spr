@@ -1,34 +1,17 @@
 @extends('admin.master')
 
 @section('title')
-    Admin
+    Admin Page
 @endsection
 
 @section('content')
-    <section class="about" id="about">
-        <div class="container">
-
-
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <h2>Halaman Admin</h2>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <img src="../img/futsal.jpg" class="img-responsive thumbnail">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 text-center">
-                    <hr>
-                    <p class="pKiri">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ullam dolorem eaque accusamus, nobis, veritatis
-                        deleniti commodi amet neque laborum eveniet reprehenderit autem pariatur in repudiandae quos incidunt
-                        quis fugit.</p>
-                </div>
-            </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="overview-wrap">
+            <h2 class="title-1">overview</h2>
+            <button class="au-btn au-btn-icon au-btn--blue">
+                <i class="zmdi zmdi-plus"></i>add item</button>
         </div>
-    </section>
-    <!-- End About -->
+    </div>
+</div>
 @endsection
