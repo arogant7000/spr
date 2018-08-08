@@ -19,7 +19,7 @@ class MeetingController extends Controller
 
         $meeting  = Meeting::all();
 
-               return view('admin/meeting/index')->withMeeting($meeting);
+               return view('admin/meeting/index',compact('meeting'));
     }
 
     /**
@@ -44,10 +44,7 @@ class MeetingController extends Controller
 
         Meeting::create($input);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Data Shift Baru di Buat'
-        ]);
+        return back();
     }
 
     /**
@@ -82,15 +79,14 @@ class MeetingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $input = $request->all();
-        $meeting = Meeting::findOrFail($id);
+        $meeting = Meeting::findOrFail($request->id_meeting);
+        
         $meeting->update($input);
-        return response()->json([
-            'success' => true,
-            'message' => 'Update Rapat Berhasil'
-        ]);
+
+        return back();
     }
 
     /**

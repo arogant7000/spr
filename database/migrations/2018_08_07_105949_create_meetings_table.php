@@ -17,7 +17,6 @@ class CreateMeetingsTable extends Migration
             $table->increments('id_meeting');
             $table->string('perihal');
             $table->string('tempat');
-            $table->timestamp('waktu');
             $table->timestamps();
         });
     }

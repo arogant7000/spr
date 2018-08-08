@@ -18,7 +18,7 @@
             </div>
             <div class="table-data__tool-right">
                 
-                <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="addForm()">
+                <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#add">
                     <i class="zmdi zmdi-plus"></i>add item</button>
             </div>
         </div>
@@ -45,10 +45,10 @@
                         <td>{{$value->waktu}}</td>
                         <td>
                             <div class="table-data-feature">
-                                <button class="item" data-toggle="tooltip" data-placement="top" title="Show">
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Show">
                                     <i class="zmdi zmdi-eye"></i>
                                 </button>
-                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                            <button class="item" data-toggle="modal" data-target="#edit" title="Edit" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}">
                                     <i class="zmdi zmdi-edit"></i>
                                 </button>
                                 <button class="item" data-toggle="tooltip" data-placement="top" title="Delete"  onclick="deleteData('. $meeting->id_meeting .')">
@@ -75,88 +75,19 @@
 @section('script')    
 
  <script type="text/javascript">
-    function addForm() {
-        save_method = "add";
-        $('input[name=_method]').val('POST');
-        $('#modal-form').modal('show');
-        $('#modal-form form')[0].reset();
-        $('.modal-title').text('Add Meeting');
-      }   
+    $('#edit').on('show.bs.modal', function (event){
+        var button = $(event.relatedTarget)
+        var perihal = button.data('perihal')
+        var tempat = button.data('tempat')
+        var id_meeting = button.data('meetid')
+        console.log(perihal);
 
-
-      function deleteData(id){
-          var csrf_token = $('meta[name="csrf-token"]').attr('content');
-          swal({
-              title: 'Anda Yakin menghapus Data Rapat ini?',
-              text: "Anda tidak dapat membatalkan jika sudah diproses",
-              type: 'warning',
-              showCancelButton: true,
-              cancelButtonColor: '#d33',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'Yes, Hapus Data Rapat ini!'
-          }).then(function () {
-              $.ajax({
-                  url : "{{ url('admin/meeting') }}" + '/' + id,
-                  type : "POST",
-                  data : {'_method' : 'DELETE', '_token' : csrf_token},
-                  success : function(data) {
-                      table.ajax.reload();
-                      swal({
-                          title: 'Success!',
-                          text: data.message,
-                          type: 'success',
-                          timer: '1500'
-                      })
-                  },
-                  error : function () {
-                      swal({
-                          title: 'Oops...',
-                          text: data.message,
-                          type: 'error',
-                          timer: '1500'
-                      })
-                  }
-              });
-          });
-        }
-
-      $(function(){
-            $('#modal-form form').validator().on('submit', function (e) {
-                if (!e.isDefaultPrevented()){
-                    var id = $('#id_meeting').val();
-                    if (save_method == 'add') url = "{{ url('admin/meeting') }}";
-                    else url = "{{ url('admin/meeting') . '/' }}" + id;
-
-                    $.ajax({
-                        url : url,
-                        type : "POST",
-//                        data : $('#modal-form form').serialize(),
-                        data: new FormData($("#modal-form form")[0]),
-                        contentType: false,
-                        processData: false,
-                        success : function(data) {
-                            $('#modal-form').modal('hide');
-                            table.ajax.reload();
-                            swal({
-                                title: 'Success!',
-                                text: data.message,
-                                type: 'success',
-                                timer: '1500'
-                            })
-                        },
-                        error : function(data){
-                            swal({
-                                title: 'Oops...',
-                                text: data.message,
-                                type: 'error',
-                                timer: '1500'
-                            })
-                        }
-                    });
-                    return false;
-                }
-            });
-        });  
+        var modal = $(this);
+        
+        modal.find('.modal-body #id_meeting').val(id_meeting)
+        modal.find('.modal-body #perihal').val(perihal);
+        modal.find('.modal-body #tempat').val(tempat);
+    });
  </script>
 @endsection
 

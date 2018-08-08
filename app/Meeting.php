@@ -10,7 +10,7 @@ class Meeting extends Model
 
    protected $primaryKey = 'id_meeting';
 
-   protected $fillable = ['perihal','tempat','waktu'];
+   protected $fillable = ['perihal','tempat'];
 
    protected $guarded = [];
 }
