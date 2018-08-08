@@ -75,7 +75,8 @@
 
 @include('admin.meeting.form')
 
-@section('script')    
+@section('script') 
+
  <script type="text/javascript">
     $('#edit').on('show.bs.modal', function (event){
         var button = $(event.relatedTarget)

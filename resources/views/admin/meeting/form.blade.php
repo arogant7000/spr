@@ -31,13 +31,9 @@
                                     
                             <div class="form-group">
                                 <label for="waktu" class=" form-control-label">Waktu Rapat</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" id="waktu" class="form-control floating-label" placeholder="">
-                                </div>
+                                <input class="form-control" type="text" id="waktu" name="waktu" placeholder="Masukkan Jam dan Tanggal" width="312" />
                             </div>
+
                     </div>
                
                     <div class="modal-footer">

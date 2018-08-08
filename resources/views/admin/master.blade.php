@@ -13,6 +13,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>@yield('title')</title>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     {{-- dataTables --}}
     <link href="{{ asset('assets/datatables/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
@@ -42,6 +44,11 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('css/theme.css')}}" rel="stylesheet" media="all">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+
    
 
     @yield('styles')
@@ -262,8 +269,14 @@
 
     </div>
   
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+    <script>
+     $('#waktu').datetimepicker(
+         {  uiLibrary: 'materialdesign', 
+            footer: true, 
+            modal: true, 
+            format: 'dd mmmm yyyy HH:MM' }
+     );
+    </script>
     
     <!-- Jquery JS-->
     <script src="{{ asset('vendor/jquery-3.2.1.min.js')}}"></script>
