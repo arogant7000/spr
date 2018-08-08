@@ -51,9 +51,12 @@
                             <button class="item" data-toggle="modal" data-target="#edit" title="Edit" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}">
                                     <i class="zmdi zmdi-edit"></i>
                                 </button>
-                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete"  onclick="deleteData('. $meeting->id_meeting .')">
-                                    <i class="zmdi zmdi-delete"></i>
-                                </button>
+                                <form method="post" action="{{ route('meeting.destroy', $value->id_meeting) }}">
+                                    {{ method_field('DELETE') }} {{ csrf_field() }}
+                                    <button class="item js-submit-confirm" data-toggle="tooltip" type="submit" data-placement="top" title="Delete">
+                                        <i class="zmdi zmdi-delete"></i>
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>
@@ -73,7 +76,6 @@
 @include('admin.meeting.form')
 
 @section('script')    
-
  <script type="text/javascript">
     $('#edit').on('show.bs.modal', function (event){
         var button = $(event.relatedTarget)
@@ -88,6 +90,32 @@
         modal.find('.modal-body #perihal').val(perihal);
         modal.find('.modal-body #tempat').val(tempat);
     });
+
  </script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*sweetalert confirm*/
+        $(document.body).on('click', '.js-submit-confirm', function (event) {
+            event.preventDefault();
+            var $form = $(this).closest('form');
+            var $el = $(this);
+            var text = $el.data('confirm-message') ? $el.data('confirm-message') : 'You will not be able to recover this imaginary file!';
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                cancelButtonColor: '#d33',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!'
+            }).then(function () {
+                $form.submit()
+            })
+        });
+    });
+</script>
+
 @endsection
 

@@ -100,11 +100,8 @@ class MeetingController extends Controller
         $meeting = Meeting::findOrFail($id);
 
         Meeting::destroy($id);
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Data Shift di Hapus'
-        ]);
+        
+        return back();
     }
 
 }

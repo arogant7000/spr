@@ -28,6 +28,16 @@
                                     <label for="tempat" class=" form-control-label">Tempat Rapat</label>
                                     <input type="text" name="tempat" id="tempat" placeholder="Masukkan Lokasi Rapat" class="form-control">
                             </div>
+                                    
+                            <div class="form-group">
+                                <label for="waktu" class=" form-control-label">Waktu Rapat</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" id="waktu" class="form-control floating-label" placeholder="">
+                                </div>
+                            </div>
                     </div>
                
                     <div class="modal-footer">
@@ -71,6 +81,16 @@
                             <div class="form-group">
                                     <label for="tempat" class=" form-control-label">Tempat Rapat</label>
                                     <input type="text" name="tempat" id="tempat" placeholder="Masukkan Lokasi Rapat" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="waktu" class=" form-control-label">Waktu Rapat</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" id="waktu" class="form-control floating-label" placeholder="Begin Date Time">
+                                </div>
                             </div>
                     </div>
                

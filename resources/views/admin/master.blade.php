@@ -19,8 +19,7 @@
 
       {{-- SweetAlert2 --}}
       <script src="{{ asset('assets/sweetalert2/sweetalert2.min.js') }}"></script>
-      <link href="{{ asset('assets/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">
-
+      <link href="{{ asset('assets/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">            
 
     <!-- Fontfaces CSS-->
     <link href="{{ asset('css/font-face.css')}}" rel="stylesheet" media="all">
@@ -43,6 +42,7 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('css/theme.css')}}" rel="stylesheet" media="all">
+   
 
     @yield('styles')
 
