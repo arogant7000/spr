@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-
 use Illuminate\Http\Request;
-use App\Meeting;
-use Mockery\Exception;
-use Yajra\DataTables\DataTables;
+use App\Employee;
 
-class MeetingController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +15,9 @@ class MeetingController extends Controller
     public function index()
     {   
 
-        $meeting  = Meeting::all();
+        $employee  = Employee::all();
 
-               return view('admin/meeting/index',compact('meeting'));
+               return view('admin/employee/index',compact('employee'));
     }
 
     /**
@@ -42,13 +38,9 @@ class MeetingController extends Controller
      */
     public function store(Request $request)
     {
-
         $input = $request->all();
-        $date = str_replace("-", "", $input['waktu']);
-        $input['waktu'] = Carbon::parse($date)->format('Y-m-d H:i:s');
-        $request->replace($input);
 
-        Meeting::create($input);
+        Employee::create($input);
 
         return back();
     }
@@ -72,9 +64,9 @@ class MeetingController extends Controller
      */
     public function edit($id)
     {
-       $meeting = Meeting::findOrFail($id);
+       $employee = Employee::findOrFail($id);
 
-       return $meeting;
+       return $employee;
        
     }
 
@@ -88,9 +80,9 @@ class MeetingController extends Controller
     public function update(Request $request)
     {
         $input = $request->all();
-        $meeting = Meeting::findOrFail($request->id_meeting);
+        $employee = Employee::findOrFail($request->id_karyawan);
         
-        $meeting->update($input);
+        $employee->update($input);
 
         return back();
     }
@@ -103,11 +95,10 @@ class MeetingController extends Controller
      */
     public function destroy($id)
     {
-        $meeting = Meeting::findOrFail($id);
+        $employee = Employee::findOrFail($id);
 
-        Meeting::destroy($id);
+        Employee::destroy($id);
         
         return back();
     }
-
 }

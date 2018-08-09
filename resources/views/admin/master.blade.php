@@ -68,13 +68,13 @@
         <aside class="menu-sidebar2">
             <div class="logo">
                 <a href="/admin/">
-                    <img src="images/icon/logo-white.png" alt="Cool Admin" />
+                    <img src="{{asset('images/icon/ds.png')}}" alt="">
                 </a>
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
                 <div class="account2">
                     <div class="image img-cir img-120">
-                        <img src="" alt="" />
+                        <img src="{{asset('images/ichsan.jpeg')}}" alt="">
                     </div>
                     <h4 class="name">Mulia Ichsan</h4>
                    
@@ -98,14 +98,11 @@
                         </li>
 
                         <li>
-                            <a href="/admin/meeting">
-                                <i class="fas fa-shopping-basket"></i>Data Rapat</a>
+                            <a href="/admin/employee">
+                                <i class="fas fa-shopping-basket"></i>Data Karyawan</a>
                         </li>
 
-                        <li>
-                            <a href="/admin/meeting">
-                                <i class="fas fa-shopping-basket"></i>Data Rapat</a>
-                        </li>
+                        
                         
                     </ul>
                 </nav>
@@ -122,7 +119,7 @@
                         <div class="header-wrap2">
                             <div class="logo d-block d-lg-none">
                                 <a href="#">
-                                    <img src="" alt="" />
+                                    <img src="{{asset('images/icon/ds.png')}}" alt="">
                                 </a>
                             </div>
                             <div class="header-button2">
@@ -216,12 +213,8 @@
                             </li>
 
                             <li>
-                                <a href="/admin/meeting">
-                                    <i class="fas fa-shopping-basket"></i>Data Rapat</a>
-                            </li>
-                            <li>
-                                <a href="/admin/meeting">
-                                    <i class="fas fa-shopping-basket"></i>Data Rapat</a>
+                                <a href="/admin/employee">
+                                    <i class="fas fa-shopping-basket"></i>Data Karyawan</a>
                             </li>
                             
                         </ul>
@@ -274,7 +267,7 @@
          {  uiLibrary: 'materialdesign', 
             footer: true, 
             modal: true, 
-            format: 'dd mmmm yyyy HH:MM' }
+            format : 'dddd dd mmmm yyyy - HH:MM' }
      );
     </script>
     

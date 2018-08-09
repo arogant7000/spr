@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-md-12">
         <!-- DATA TABLE -->
-        <h3 class="title-5 m-b-35">DATA RAPAT</h3>
+        <h3 class="title-5 m-b-35">DATA KARYAWAN</h3>
         <div class="table-data__tool">
             <div class="table-data__tool-left">
                 
@@ -26,32 +26,32 @@
             <table class="table table-borderless table-data3">
                 <thead>
                     <tr>
-                        <th>ID Rapat</th>
-                        <th>Perihal Rapat</th>
-                        <th>Tempat Rapat</th>
-                        <th>Waktu Rapat</th>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Alamat</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($meeting as $value)
+                    @foreach($employee as $value)
                     <tr class="tr-shadow">
                        
-                        <td>{{$value->id_meeting}}</td>
+                        <td>{{$value->id_karyawan}}</td>
                         <td class="">
-                            <span class="block-email">{{$value->perihal}}</span>
+                            <span class="block-email">{{$value->nama_karyawan}}</span>
                         </td>
-                        <td class="desc">{{$value->tempat}}</td>
-                        <td>{{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%A, %d %B %Y %H:%I') }}</td>
+                        <td class="desc">{{$value->email}}</td>
+                        <td>{{$value->alamat}}</td>
                         <td>
                             <div class="table-data-feature">
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Show">
                                     <i class="zmdi zmdi-eye"></i>
                                 </button>
-                            <button class="item" data-toggle="modal" data-target="#edit" title="Edit" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}">
+                            <button class="item" data-toggle="modal" data-target="#edit" title="Edit" data-nama="{{$value->nama_karyawan}}" data-empemail="{{$value->email}}" data-emalamat="{{$value->alamat}}" data-empid="{{$value->id_karyawan}}">
                                     <i class="zmdi zmdi-edit"></i>
                                 </button>
-                                <form method="post" action="{{ route('meeting.destroy', $value->id_meeting) }}">
+                                <form method="post" action="{{ route('employee.destroy', $value->id_karyawan) }}">
                                     {{ method_field('DELETE') }} {{ csrf_field() }}
                                     <button class="item js-submit-confirm" data-toggle="tooltip" type="submit" data-placement="top" title="Delete">
                                         <i class="zmdi zmdi-delete"></i>
@@ -73,23 +73,26 @@
 @endsection
 
 
-@include('admin.meeting.form')
+@include('admin.employee.form')
 
 @section('script') 
 
  <script type="text/javascript">
     $('#edit').on('show.bs.modal', function (event){
         var button = $(event.relatedTarget)
-        var perihal = button.data('perihal')
-        var tempat = button.data('tempat')
-        var id_meeting = button.data('meetid')
-        console.log(perihal);
+        var nama_karyawan = button.data('nama')
+        var email_karyawan = button.data('empemail')
+        var id_karyawan = button.data('empid')
+        var alamat_karyawan = button.data('emalamat')
+       
+       
 
         var modal = $(this);
-        
-        modal.find('.modal-body #id_meeting').val(id_meeting)
-        modal.find('.modal-body #perihal').val(perihal);
-        modal.find('.modal-body #tempat').val(tempat);
+    
+        modal.find('.modal-body #nama_karyawan').val(nama_karyawan);
+        modal.find('.modal-body #email').val(email_karyawan);
+        modal.find('.modal-body #id_karyawan').val(id_karyawan);
+        modal.find('.modal-body #alamat').val(alamat_karyawan);
     });
 
  </script>

@@ -26,4 +26,8 @@ Route::resource('admin/meeting', 'MeetingController', [
 	'except' => ['create']
 ]);
 
+Route::resource('admin/employee', 'EmployeeController', [
+	'except' => ['create']
+]);
+
 });

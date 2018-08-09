@@ -13,26 +13,27 @@
                 </div>
             
             
-                <form method="post" action="{{ route('meeting.store') }}" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
+                <form method="post" action="{{ route('employee.store') }}" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
                      {{ csrf_field() }} {{ method_field('POST') }}
                     
                     <div class="modal-body">
-                            <input type="hidden" id="id_meeting" name="id_meeting">
+                            <input type="hidden" id="id_karyawan" name="id_karyawan">
 
                             <div class="form-group">
-                                    <label for="perihal" class=" form-control-label">Perihal Rapat</label>
-                                    <input type="text" name="perihal" id="perihal" placeholder="Masukkan tema, judul atau perihal Rapat" class="form-control">
+                                    <label for="nama_karyawan" class=" form-control-label">Nama Karyawan</label>
+                                    <input type="text" name="nama_karyawan" id="nama_karyawan" placeholder="Masukkan nama karyawan" class="form-control">
                             </div>
 
                             <div class="form-group">
-                                    <label for="tempat" class=" form-control-label">Tempat Rapat</label>
-                                    <input type="text" name="tempat" id="tempat" placeholder="Masukkan Lokasi Rapat" class="form-control">
+                                    <label for="email" class=" form-control-label">E-Mail</label>
+                                    <input type="email" name="email" id="email" placeholder="Masukkan E-Mail" class="form-control">
                             </div>
-                                    
+
                             <div class="form-group">
-                                <label for="waktu" class=" form-control-label">Waktu Rapat</label>
-                                <input class="form-control datetime" type="text" id="waktu" name="waktu" placeholder="Masukkan Jam dan Tanggal" width="312" />
+                                <label for="alamat" class=" form-control-label">Alamat</label>
+                                <input type="text" name="alamat" id="alamat" placeholder="Masukkan Alamat Karyawan" class="form-control">
                             </div>
+                            
 
                     </div>
                
@@ -63,31 +64,26 @@
                 </div>
             
             
-                <form method="post" action="{{ route('meeting.update', 'test') }}" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
+                <form method="post" action="{{ route('employee.update', 'test') }}" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
                      {{ csrf_field() }} {{ method_field('PATCH') }}
                     
                     <div class="modal-body">
-                    <input type="hidden" id="id_meeting" name="id_meeting" value="">
+                        <input type="hidden" id="id_karyawan" name="id_karyawan">
 
-                            <div class="form-group">
-                                    <label for="perihal" class=" form-control-label">Perihal Rapat</label>
-                                    <input type="text" name="perihal" id="perihal" placeholder="Masukkan tema, judul atau perihal Rapat" class="form-control">
-                            </div>
+                        <div class="form-group">
+                                <label for="nama_karyawan" class=" form-control-label">Nama Karyawan</label>
+                                <input type="text" name="nama_karyawan" id="nama_karyawan" placeholder="Masukkan nama karyawan" class="form-control">
+                        </div>
 
-                            <div class="form-group">
-                                    <label for="tempat" class=" form-control-label">Tempat Rapat</label>
-                                    <input type="text" name="tempat" id="tempat" placeholder="Masukkan Lokasi Rapat" class="form-control">
-                            </div>
+                        <div class="form-group">
+                                <label for="email" class=" form-control-label">E-Mail</label>
+                                <input type="email" name="email" id="email" placeholder="Masukkan E-Mail" class="form-control">
+                        </div>
 
-                            <div class="form-group">
-                                <label for="waktu" class=" form-control-label">Waktu Rapat</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" id="waktu" class="form-control floating-label" placeholder="Begin Date Time">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="alamat" class=" form-control-label">Alamat</label>
+                            <input type="text" name="alamat" id="alamat" placeholder="Masukkan Alamat Karyawan" class="form-control">
+                        </div>
                     </div>
                
                     <div class="modal-footer">
