@@ -1,6 +1,5 @@
 
 <!--MODAL ADD -->
-<!-- modal large -->
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -46,12 +45,12 @@
             </div>
         </div>
     </div>
-    <!-- end modal large -->
+    <!-- END MODAL ADD -->
 
 
-<!-- MODAL EDIT -->
-    <!-- modal large -->
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+
+    <!-- MODAL EDIT -->
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
 
@@ -81,12 +80,7 @@
 
                             <div class="form-group">
                                 <label for="waktu" class=" form-control-label">Waktu Rapat</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" id="waktu" class="form-control floating-label" placeholder="Begin Date Time">
-                                </div>
+                                <input class="form-control datetime" type="text" id="waktu1" name="waktu" placeholder="Masukkan Jam dan Tanggal" width="312" />
                             </div>
                     </div>
                
@@ -100,4 +94,31 @@
             </div>
         </div>
     </div>
-    <!-- end modal large -->
+    <!-- END MODAL EDIT -->
+
+
+     <!-- MODAL SHOW -->
+     <div class="modal fade" id="show" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+    
+                    <div class="modal-header">
+                            <h5 class="modal-title" id="largeModalLabel">Edit Data Rapat</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>                        
+                        <div class="modal-body">
+                            
+                        </div>
+                   
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+    
+                    </form>
+    
+                </div>
+            </div>
+        </div>
+        <!-- END MODAL SHOW -->

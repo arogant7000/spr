@@ -45,18 +45,18 @@
                         <td>{{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%A, %d %B %Y %H:%I') }}</td>
                         <td>
                             <div class="table-data-feature">
-                            <button class="item" data-toggle="tooltip" data-placement="top" title="Show">
+                            <button class="item" data-toggle="modal" data-target="#show" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}" data-waktu="{{$value->waktu}}">
                                     <i class="zmdi zmdi-eye"></i>
                                 </button>
-                            <button class="item" data-toggle="modal" data-target="#edit" title="Edit" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}">
+                            <button class="item" data-toggle="modal" data-target="#edit" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}" data-waktu="{{$value->waktu}}">
                                     <i class="zmdi zmdi-edit"></i>
                                 </button>
                                 <form method="post" action="{{ route('meeting.destroy', $value->id_meeting) }}">
-                                    {{ method_field('DELETE') }} {{ csrf_field() }}
-                                    <button class="item js-submit-confirm" data-toggle="tooltip" type="submit" data-placement="top" title="Delete">
-                                        <i class="zmdi zmdi-delete"></i>
-                                    </button>
-                                </form>
+                                        {{ method_field('DELETE') }} {{ csrf_field() }}
+                                        <button class="item js-submit-confirm" data-toggle="tooltip" type="submit" data-placement="top" title="Delete">
+                                            <i class="zmdi zmdi-delete"></i>
+                                        </button>
+                                    </form>
                             </div>
                         </td>
                     </tr>
@@ -82,6 +82,7 @@
         var button = $(event.relatedTarget)
         var perihal = button.data('perihal')
         var tempat = button.data('tempat')
+        var waktu = button.data('waktu')
         var id_meeting = button.data('meetid')
         console.log(perihal);
 
@@ -90,6 +91,23 @@
         modal.find('.modal-body #id_meeting').val(id_meeting)
         modal.find('.modal-body #perihal').val(perihal);
         modal.find('.modal-body #tempat').val(tempat);
+        modal.find('.modal-body #waktu1').val(waktu);
+    });
+
+    $('#edit').on('show.bs.modal', function (event){
+        var button = $(event.relatedTarget)
+        var perihal = button.data('perihal')
+        var tempat = button.data('tempat')
+        var waktu = button.data('waktu')
+        var id_meeting = button.data('meetid')
+        console.log(perihal);
+
+        var modal = $(this);
+        
+        modal.find('.modal-body #id_meeting').text(id_meeting)
+        modal.find('.modal-body #perihal').text(perihal);
+        modal.find('.modal-body #tempat').text(tempat);
+        modal.find('.modal-body #waktu1').text(waktu);
     });
 
  </script>

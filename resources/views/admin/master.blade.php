@@ -271,6 +271,15 @@
      );
     </script>
     
+    <script>
+     $('#waktu1').datetimepicker(
+         {  uiLibrary: 'materialdesign', 
+            footer: true, 
+            modal: true, 
+            format : 'dddd dd mmmm yyyy - HH:MM' }
+     );
+    </script>
+
     <!-- Jquery JS-->
     <script src="{{ asset('vendor/jquery-3.2.1.min.js')}}"></script>
     <!-- Bootstrap JS-->

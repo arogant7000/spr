@@ -7,6 +7,10 @@ use Illuminate\Notifications\Notifiable;
 
 class Employee extends Model
 {
+
+    use Notifiable;
+
+    
     protected $table = 'employees';
 
     protected $primaryKey = 'id_karyawan';

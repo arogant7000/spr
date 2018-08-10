@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-
+use App\Notifications\NewMeetings;
 use Illuminate\Http\Request;
 use App\Meeting;
+use App\Employee;
 use Mockery\Exception;
 use Yajra\DataTables\DataTables;
 
@@ -50,6 +51,12 @@ class MeetingController extends Controller
 
         Meeting::create($input);
 
+        $karyawan = Employee::all();
+
+        foreach($karyawan as $user){
+            $user->notify(new NewMeetings($input));
+        }
+
         return back();
     }
 
@@ -89,7 +96,11 @@ class MeetingController extends Controller
     {
         $input = $request->all();
         $meeting = Meeting::findOrFail($request->id_meeting);
+        $date = str_replace("-", "", $input['waktu']);
+        $input['waktu'] = Carbon::parse($date)->format('Y-m-d H:i:s');
+        $request->replace($input);
         
+    
         $meeting->update($input);
 
         return back();
