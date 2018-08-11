@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Employee;
+use Session;
 
 class EmployeeController extends Controller
 {
@@ -42,7 +43,12 @@ class EmployeeController extends Controller
 
         Employee::create($input);
 
-        return back();
+        $notification = array(
+            'message' => 'Data Karyawan telah berhasil di tambahkan!',
+            'alert-type' => 'success'
+         );
+        
+        return back()->with($notification);
     }
 
     /**
@@ -84,7 +90,12 @@ class EmployeeController extends Controller
         
         $employee->update($input);
 
-        return back();
+        $notification = array(
+            'message' => 'Data Karyawan telah berhasil di Update!',
+            'alert-type' => 'info'
+         );
+        
+        return back()->with($notification);
     }
 
     /**
@@ -99,6 +110,11 @@ class EmployeeController extends Controller
 
         Employee::destroy($id);
         
-        return back();
+        $notification = array(
+            'message' => 'Data Karyawan telah berhasil di hapus!',
+            'alert-type' => 'warning'
+         );
+
+        return back()->with($notification);
     }
 }

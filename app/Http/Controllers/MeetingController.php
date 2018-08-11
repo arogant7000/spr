@@ -9,6 +9,7 @@ use App\Meeting;
 use App\Employee;
 use Mockery\Exception;
 use Yajra\DataTables\DataTables;
+use Session;
 
 class MeetingController extends Controller
 {
@@ -60,7 +61,12 @@ class MeetingController extends Controller
             $user->notify(new NewMeetings($perihal, $tempat));
         }
 
-        return back();
+        $notification = array(
+            'message' => 'Data Rapat telah berhasil di buat!',
+            'alert-type' => 'success'
+         );
+        
+        return back()->with($notification);
     }
 
     /**
@@ -103,10 +109,14 @@ class MeetingController extends Controller
         $input['waktu'] = Carbon::parse($date)->format('Y-m-d H:i:s');
         $request->replace($input);
         
-    
         $meeting->update($input);
 
-        return back();
+        $notification = array(
+            'message' => 'Data Rapat telah berhasil di Update!',
+            'alert-type' => 'info'
+         );
+        
+        return back()->with($notification);
     }
 
     /**
@@ -121,7 +131,12 @@ class MeetingController extends Controller
 
         Meeting::destroy($id);
         
-        return back();
+        $notification = array(
+            'message' => 'Data Rapat telah berhasil di Hapus!',
+            'alert-type' => 'danger'
+         );
+
+        return back()->with($notification);
     }
 
 }

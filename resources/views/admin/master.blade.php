@@ -47,7 +47,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.css') }}">
 
    
 
@@ -101,6 +101,11 @@
                             <a href="/admin/employee">
                                 <i class="fas fa-shopping-basket"></i>Data Karyawan</a>
                         </li>
+
+                         <li>
+                                <a href="/admin/user">
+                                    <i class="fas fa-shopping-basket"></i>Data User</a>
+                            </li>
 
                         
                         
@@ -216,6 +221,11 @@
                                 <a href="/admin/employee">
                                     <i class="fas fa-shopping-basket"></i>Data Karyawan</a>
                             </li>
+
+                            <li>
+                                <a href="/admin/user">
+                                    <i class="fas fa-shopping-basket"></i>Data User</a>
+                            </li>
                             
                         </ul>
                     </nav>
@@ -233,14 +243,7 @@
                         
                         @yield('content')               
                         
-                       
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Mulia Ichsan. All rights reserved. Template by <a href="/">Mulia Ichsan</a>.</p>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -249,11 +252,11 @@
             <section>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 Mulia Ichsan. All rights reserved. Template by <a href="/">Mulia Ichsan</a>.</p>
+                                </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -278,6 +281,54 @@
             modal: true, 
             format : 'dddd dd mmmm yyyy - HH:MM' }
      );
+    </script>
+
+
+    <script src="{{ asset('vendor/toastr/toastr.js')}}"></script>
+
+    <script>
+        @if(Session::has('message'))
+        
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+                
+        };
+        
+        var type = "{{ Session::get('alert-type', 'info') }}";
+        switch(type){
+            case 'info':
+
+                toastr.info("{{ Session::get('message') }}");
+                break;
+
+            case 'warning':
+            
+                toastr.warning("{{ Session::get('message') }}");
+                break;
+
+            case 'success':
+                toastr.success("{{ Session::get('message') }}");
+                break;
+
+            case 'error':
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
+        @endif
     </script>
 
     <!-- Jquery JS-->
