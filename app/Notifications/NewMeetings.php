@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Notifications;
-
+use App\Meeting;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -11,15 +11,17 @@ class NewMeetings extends Notification
 {
     use Queueable;
 
-    public $meetings;
+    protected $meeting;
+    protected $tempat;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($newMeetings)
+    public function __construct( $meeting, $tempat)
     {
-        $this->meetings = $newMeetings;
+        $this->meeting = $meeting;
+        $this->tempat = $tempat;
     }
 
     /**
@@ -44,9 +46,11 @@ class NewMeetings extends Notification
         return (new MailMessage)
                     ->subject('Rapat Baru telah terjadwal')
                     ->success()
-                    ->line('Judul Rapat : '.$this->meetings->perihal)
-                    ->action('Lihat Jadwal Rapat', url('/admin/meeting/'.$this->meeting->id_meeting))
+                    ->line('Judul Rapat : '.$this->meeting)
+                    ->line('Tempat Rapat : '.$this->tempat)
+                    ->action('Lihat Jadwal Rapat', url('/admin/meeting/'))
                     ->line('Thank you for using our application!');
+                    
     }
 
     /**

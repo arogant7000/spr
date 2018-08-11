@@ -53,8 +53,11 @@ class MeetingController extends Controller
 
         $karyawan = Employee::all();
 
+        $perihal = $request->get('perihal');
+        $tempat = $request->get('tempat');
+
         foreach($karyawan as $user){
-            $user->notify(new NewMeetings($input));
+            $user->notify(new NewMeetings($perihal, $tempat));
         }
 
         return back();
