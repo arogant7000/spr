@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Notifications\NewMeetings;
+use App\Notifications\UpdateMeetings;
 use Illuminate\Http\Request;
 use App\Meeting;
 use App\Employee;
@@ -54,11 +55,15 @@ class MeetingController extends Controller
 
         $karyawan = Employee::all();
 
+        $id_meeting = $request->get('id_meeting');
         $perihal = $request->get('perihal');
         $tempat = $request->get('tempat');
+        $waktu = $request->get('waktu');
+
+        $waktu1 = Carbon::createFromTimestamp(strtotime($waktu))->formatLocalized('%A, %d %B %Y %H:%I');
 
         foreach($karyawan as $user){
-            $user->notify(new NewMeetings($perihal, $tempat));
+            $user->notify(new NewMeetings($id_meeting, $perihal, $tempat, $waktu1));
         }
 
         $notification = array(
@@ -110,6 +115,19 @@ class MeetingController extends Controller
         $request->replace($input);
         
         $meeting->update($input);
+
+        $karyawan = Employee::all();
+
+        $id_meeting = $request->get('id_meeting');
+        $perihal = $request->get('perihal');
+        $tempat = $request->get('tempat');
+        $waktu = $request->get('waktu');
+
+        $waktu1 = Carbon::createFromTimestamp(strtotime($waktu))->formatLocalized('%A, %d %B %Y %H:%I');
+
+        foreach($karyawan as $user){
+            $user->notify(new UpdateMeetings($id_meeting, $perihal, $tempat, $waktu1));
+        }
 
         $notification = array(
             'message' => 'Data Rapat telah berhasil di Update!',

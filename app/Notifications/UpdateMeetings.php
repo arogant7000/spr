@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Notifications;
-use App\Meeting;
+
 use Illuminate\Bus\Queueable;
+use App\Meeting;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class NewMeetings extends Notification
+class UpdateMeetings extends Notification
 {
     use Queueable;
 
@@ -15,6 +16,7 @@ class NewMeetings extends Notification
     protected $tempat;
     protected $id_meeting;
     protected $waktu;
+
     /**
      * Create a new notification instance.
      *
@@ -48,7 +50,7 @@ class NewMeetings extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Jadwal Rapat Terbaru')
+                    ->subject('Perubahan Jadwal Rapat')
                     ->success()
                     ->line('Judul Rapat : '.$this->meeting)
                     ->line('Tempat Rapat : '.$this->tempat)
