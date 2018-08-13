@@ -45,7 +45,7 @@
                         <td>{{$value->alamat}}</td>
                         <td>
                             <div class="table-data-feature">
-                            <button class="item" data-toggle="tooltip" data-placement="top" title="Show">
+                            <button class="item" data-toggle="modal" data-target="#show" title="Show" data-nama="{{$value->nama_karyawan}}" data-empemail="{{$value->email}}" data-emalamat="{{$value->alamat}}" data-empid="{{$value->id_karyawan}}">
                                     <i class="zmdi zmdi-eye"></i>
                                 </button>
                             <button class="item" data-toggle="modal" data-target="#edit" title="Edit" data-nama="{{$value->nama_karyawan}}" data-empemail="{{$value->email}}" data-emalamat="{{$value->alamat}}" data-empid="{{$value->id_karyawan}}">
@@ -93,6 +93,23 @@
         modal.find('.modal-body #email').val(email_karyawan);
         modal.find('.modal-body #id_karyawan').val(id_karyawan);
         modal.find('.modal-body #alamat').val(alamat_karyawan);
+    });
+
+    $('#show').on('show.bs.modal', function (event){
+        var button = $(event.relatedTarget)
+        var nama_karyawan = button.data('nama')
+        var email_karyawan = button.data('empemail')
+        var id_karyawan = button.data('empid')
+        var alamat_karyawan = button.data('emalamat')
+       
+       
+
+        var modal = $(this);
+    
+        modal.find('.modal-body #nama_karyawan').text(nama_karyawan);
+        modal.find('.modal-body #email').text(email_karyawan);
+        modal.find('.modal-body #id_karyawan').val(id_karyawan);
+        modal.find('.modal-body #alamat').text(alamat_karyawan);
     });
 
  </script>

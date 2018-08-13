@@ -43,16 +43,12 @@
                       <td class="desc">{{$value->email}}</td>
                       <td>{{$value->status}}</td>
                       <td>
-                          <div class="table-data-feature">
-                          <button class="item" data-toggle="modal">
-                                  <i class="zmdi zmdi-eye"></i>
-                              </button>
-                              
+                          <div class="table-data-feature">                              
                             <button class="item" data-toggle="modal" data-target="#edit" data-userid="{{$value->id}}" data-nameuser="{{$value->name}}" data-useremail="{{$value->email}}" data-userrole="{{$value->status}}">
-                                <i class="zmdi zmdi-edit"></i>
+                                <i class="zmdi zmdi-code-setting"></i>
                             </button>
                             <button class="item" data-toggle="modal" data-target="#role" data-userid="{{$value->id}}" data-nameuser="{{$value->name}}" data-userrole="{{$value->status}}">
-                                <i class="zmdi zmdi-edit"></i>
+                                <i class="zmdi zmdi-shield-security"></i>
                             </button>
                               <form method="post" action="{{ route('user.destroy', $value->id) }}">
                                 {{ method_field('DELETE') }} {{ csrf_field() }}

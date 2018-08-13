@@ -103,17 +103,27 @@
                 <div class="modal-content">
     
                     <div class="modal-header">
-                            <h5 class="modal-title" id="largeModalLabel">Edit Data Rapat</h5>
+                            <h5 class="modal-title" id="largeModalLabel">Data Rapat</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     </div>                        
                         <div class="modal-body">
-                            
+                            <p> <strong>Perihal Rapat : </strong>
+                                <span id="perihal"></span>
+                            </p>
+                            <br>
+                            <p> <strong>Tempat Rapat  : </strong>
+                                <span id="tempat"></span>
+                            </p> 
+                            <br>
+                            <p> <strong>waktu Rapat   : </strong>
+                                <span id="waktu1"></span>
+                            </p>
                         </div>
                    
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
     
                     </form>

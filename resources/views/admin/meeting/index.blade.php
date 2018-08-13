@@ -45,7 +45,7 @@
                         <td>{{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%A, %d %B %Y %H:%I') }}</td>
                         <td>
                             <div class="table-data-feature">
-                            <button class="item" data-toggle="modal" data-target="#show" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}" data-waktu="{{$value->waktu}}">
+                            <button class="item" data-toggle="modal" data-target="#show" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}" data-waktu="{{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%A, %d %B %Y %H:%I') }}">
                                     <i class="zmdi zmdi-eye"></i>
                                 </button>
                             <button class="item" data-toggle="modal" data-target="#edit" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}" data-waktu="{{$value->waktu}}">
@@ -94,7 +94,21 @@
         modal.find('.modal-body #waktu1').val(waktu);
     });
 
-   
+    $('#show').on('show.bs.modal', function (event){
+        var button = $(event.relatedTarget)
+        var perihal = button.data('perihal')
+        var tempat = button.data('tempat')
+        var waktu = button.data('waktu')
+        var id_meeting = button.data('meetid')
+        console.log(perihal);
+
+        var modal = $(this);
+        
+        modal.find('.modal-body #id_meeting').val(id_meeting)
+        modal.find('.modal-body #perihal').text(perihal);
+        modal.find('.modal-body #tempat').text(tempat);
+        modal.find('.modal-body #waktu1').text(waktu);
+    });
 
  </script>
 

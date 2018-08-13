@@ -94,19 +94,18 @@
                        
                         <li>
                             <a href="/admin/meeting">
-                                <i class="fas fa-shopping-basket"></i>Data Rapat</a>
+                                <i class="zmdi zmdi-assignment-o"></i>Data Rapat</a>
                         </li>
 
                         <li>
                             <a href="/admin/employee">
-                                <i class="fas fa-shopping-basket"></i>Data Karyawan</a>
+                                <i class="zmdi zmdi-accounts-list-alt"></i>Data Karyawan</a>
                         </li>
-
-                         @if (Auth::user()->is_admin())
-                                <li>
-                                    <a href="/admin/user">
-                                        <i class="fas fa-shopping-basket"></i>Data User</a>
-                                </li>
+                        @if (Auth::user()->is_admin())
+                            <li>
+                                <a href="/admin/user">
+                                    <i class="zmdi zmdi-account-circle"></i>Data User</a>
+                            </li>
                         @endif
                         
                         
@@ -179,7 +178,7 @@
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
                                             <a href="{{ url('admin/user/editpassword/'.Auth::user()->id)}}">
-                                                <i class="zmdi zmdi-notifications"></i>Change Password</a>
+                                                <i class="zmdi zmdi-key"></i>Change Password</a>
                                         </div>
                                     </div>
                                 </div>
@@ -217,17 +216,17 @@
                             
                                 <li>
                                     <a href="/admin/meeting">
-                                        <i class="fas fa-shopping-basket"></i>Data Rapat</a>
+                                        <i class="zmdi zmdi-assignment-o"></i>Data Rapat</a>
                                 </li>
 
                                 <li>
                                     <a href="/admin/employee">
-                                        <i class="fas fa-shopping-basket"></i>Data Karyawan</a>
+                                        <i class="zmdi zmdi-accounts-list-alt"></i>Data Karyawan</a>
                                 </li>
                             @if (Auth::user()->is_admin())
                                 <li>
                                     <a href="/admin/user">
-                                        <i class="fas fa-shopping-basket"></i>Data User</a>
+                                        <i class="zmdi zmdi-account-circle"></i>Data User</a>
                                 </li>
                             @endif
                             
