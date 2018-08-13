@@ -10,6 +10,9 @@
                     <h1>
                         Our Next Event Starts in
                     </h1>
+
+                    <p id="demo"></p>
+                    
                     <div class="row clock_sec d-flex flex-row justify-content-between" id="clockdiv">
                         <div class="clockinner">
                             <span class="days"></span>
@@ -42,7 +45,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 pb-80 header-text">
-                <h1>Our Speakers</h1>
+                <h1>Web Programmer</h1>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> labore  et dolore magna aliqua.
                 </p>
@@ -55,13 +58,13 @@
                     <div class="content">
                         <a href="#" target="_blank">
                           <div class="content-overlay"></div>
-                               <img class="content-image img-fluid d-block mx-auto" src="img/s3.jpg" alt="">
+                        <img class="content-image img-fluid d-block mx-auto" src="{{asset('images/ichsan.jpeg')}}" alt="">
                               <div class="content-details fadeIn-bottom"></div>
                         </a>
                      </div>
                 </div>
-                  <h2>Andy Florence</h2>
-                  <p>inappropriate behavior</p>
+                  <h2>Mulia Ichsan</h2>
+                  <p>Mahasiswa Politeknik Negeri Lhokseumawe</p>
             </div>
 
         </div>
@@ -75,10 +78,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 pb-80 header-text">
-                <h1>Upcoming Events</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> labore  et dolore magna aliqua.
-                </p>
+                <h1>Events</h1>
             </div>
         </div>
         
@@ -86,96 +86,34 @@
             
             <div class="col-lg-6 col-sm-6">
                 <div class="single-events row no-padding">
-                    <div class="col-lg-4 image">
-                        <img src="img/e1.jpg" alt="">
+                    <div class="col-lg-4">
+                        <img src="" alt="">
                     </div>
                     <div class="col-lg-7 details">
                         <a href="#">
-                            <h4>Addiction When Gambling
-                            Becomes A Problem</h4>
+                            <h4>Judul Event</h4>
                         </a>
                         <p>
-                            inappropriate behavior Lorem ipsum dolor sit amet, consectetur.
+                            descripsi acara
                         </p>
-                        <p class="meta"><span class="lnr lnr-heart"></span> <span class="likes">05 likes</span> <span class="lnr lnr-bubble"></span> <span class="likes">06 comments</span></p>
-                    </div>
-                </div>
-                <div class="single-events row no-padding">
-                    <div class="col-lg-4 image">
-                        <img src="img/e2.jpg" alt="">
-                    </div>
-                    <div class="col-lg-7 details">
-                        <a href="#">
-                            <h4>Addiction When Gambling
-                            Becomes A Problem</h4>
-                        </a>
-                        <p>
-                            inappropriate behavior Lorem ipsum dolor sit amet, consectetur.
-                        </p>
-                        <p class="meta"><span class="lnr lnr-heart"></span> <span class="likes">05 likes</span> <span class="lnr lnr-bubble"></span> <span class="likes">06 comments</span></p>
-                    </div>
-                </div>
-                <div class="single-events row no-padding">
-                    <div class="col-lg-4 image">
-                        <img src="img/e3.jpg" alt="">
-                    </div>
-                    <div class="col-lg-7 details">
-                        <a href="#">
-                            <h4>Addiction When Gambling
-                            Becomes A Problem</h4>
-                        </a>
-                        <p>
-                            inappropriate behavior Lorem ipsum dolor sit amet, consectetur.
-                        </p>
-                        <p class="meta"><span class="lnr lnr-heart"></span> <span class="likes">05 likes</span> <span class="lnr lnr-bubble"></span> <span class="likes">06 comments</span></p>
+                        <p class="meta"><span class="lnr lnr-bubble"></span> <span class="likes">tanggal</span></p>
                     </div>
                 </div>
             </div>
             
             <div class="col-lg-6 col-sm-6">
                 <div class="single-events row no-padding">
-                    <div class="col-lg-4 image">
-                        <img src="img/e4.jpg" alt="">
+                    <div class="col-lg-4">
+                        <img src="" alt="">
                     </div>
                     <div class="col-lg-7 details">
                         <a href="#">
-                            <h4>Addiction When Gambling
-                            Becomes A Problem</h4>
+                            <h4>Judul Event</h4>
                         </a>
                         <p>
-                            inappropriate behavior Lorem ipsum dolor sit amet, consectetur.
+                            descripsi acara
                         </p>
-                        <p class="meta"><span class="lnr lnr-heart"></span> <span class="likes">05 likes</span> <span class="lnr lnr-bubble"></span> <span class="likes">06 comments</span></p>
-                    </div>
-                </div>
-                <div class="single-events row no-padding">
-                    <div class="col-lg-4 image">
-                        <img src="img/e5.jpg" alt="">
-                    </div>
-                    <div class="col-lg-7 details">
-                        <a href="#">
-                            <h4>Addiction When Gambling
-                            Becomes A Problem</h4>
-                        </a>
-                        <p>
-                            inappropriate behavior Lorem ipsum dolor sit amet, consectetur.
-                        </p>
-                        <p class="meta"><span class="lnr lnr-heart"></span> <span class="likes">05 likes</span> <span class="lnr lnr-bubble"></span> <span class="likes">06 comments</span></p>
-                    </div>
-                </div>
-                <div class="single-events row no-padding">
-                    <div class="col-lg-4 image">
-                        <img src="img/e6.jpg" alt="">
-                    </div>
-                    <div class="col-lg-7 details">
-                        <a href="#">
-                            <h4>Addiction When Gambling
-                            Becomes A Problem</h4>
-                        </a>
-                        <p>
-                            inappropriate behavior Lorem ipsum dolor sit amet, consectetur.
-                        </p>
-                        <p class="meta"><span class="lnr lnr-heart"></span> <span class="likes">05 likes</span> <span class="lnr lnr-bubble"></span> <span class="likes">06 comments</span></p>
+                        <p class="meta"><span class="lnr lnr-bubble"></span> <span class="likes">tanggal</span></p>
                     </div>
                 </div>
             </div>
