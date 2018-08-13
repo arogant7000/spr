@@ -116,8 +116,8 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select class="" name="status">
-                                        <option value="admin">Admin</option>
                                         <option value="operator">Operator</option>
+                                        <option value="admin">Admin</option>
                                     </select>
                                     @if ($errors->has('status'))
                                         <span class="help-block">
@@ -132,7 +132,7 @@
                                         <input type="checkbox"> Agree the terms and policy
                                     </label>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Register</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Tambah User</button>
                               
                             </form>
                         </div>

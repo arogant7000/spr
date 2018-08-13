@@ -14,6 +14,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'name', 'email', 'password','status',
     ];
@@ -26,4 +29,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function is_admin()
+    {
+        $role = $this->status;
+        if ($role == 'admin') {
+        return true;
+        }
+        return false;
+    }
 }

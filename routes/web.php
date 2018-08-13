@@ -17,17 +17,32 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware'=> ['auth','web','admin']], function(){
+
+	Route::resource('admin/employee', 'EmployeeController', [
+		'except' => ['create']
+	]);
+
+	Route::resource('admin/user', 'UserController', [
+		'except' => ['create']
+	]);
+	Route::post('admin/user/updaterole', 'UserController@updaterole');
+
+	Route::get('admin/user/editpassword/{id}','UserController@editpassword');
+    Route::post('admin/user/updatepassword', 'UserController@updatepassword');
+	
+});
+
 // AUTH MIDDLEWARE
 Route::group(['middleware'=> ['auth']], function(){
 
-Route::get('admin/', 'AppController@indexAdmin');
+	Route::get('admin/', 'AppController@indexAdmin');
 
-Route::resource('admin/meeting', 'MeetingController', [
-	'except' => ['create']
-]);
+	Route::resource('admin/meeting', 'MeetingController', [
+		'except' => ['create']
+	]);
 
-Route::resource('admin/employee', 'EmployeeController', [
-	'except' => ['create']
-]);
+	Route::get('admin/user/editpassword/{id}','UserController@editpassword');
+    Route::post('admin/user/updatepassword', 'UserController@updatepassword');
 
 });

@@ -64,7 +64,7 @@
                 </div>
             
             
-                <form method="post" action="{{ route('employee.update', 'test') }}" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
+                <form method="post" action="{{ route('employee.update', 'update') }}" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
                      {{ csrf_field() }} {{ method_field('PATCH') }}
                     
                     <div class="modal-body">

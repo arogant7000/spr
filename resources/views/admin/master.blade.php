@@ -76,8 +76,8 @@
                     <div class="image img-cir img-120">
                         <img src="{{asset('images/ichsan.jpeg')}}" alt="">
                     </div>
-                    <h4 class="name">Mulia Ichsan</h4>
-                   
+                    <h4 class="name">{{ Auth::user()->name }}</h4>
+                  
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
                                         onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -102,11 +102,12 @@
                                 <i class="fas fa-shopping-basket"></i>Data Karyawan</a>
                         </li>
 
-                         <li>
-                                <a href="/admin/user">
-                                    <i class="fas fa-shopping-basket"></i>Data User</a>
-                            </li>
-
+                         @if (Auth::user()->is_admin())
+                                <li>
+                                    <a href="/admin/user">
+                                        <i class="fas fa-shopping-basket"></i>Data User</a>
+                                </li>
+                        @endif
                         
                         
                     </ul>
@@ -123,7 +124,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap2">
                             <div class="logo d-block d-lg-none">
-                                <a href="#">
+                                <a href="/admin/">
                                     <img src="{{asset('images/icon/ds.png')}}" alt="">
                                 </a>
                             </div>
@@ -177,8 +178,8 @@
                                     </div>
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-notifications"></i>Notifications</a>
+                                            <a href="{{ url('admin/user/editpassword/'.Auth::user()->id)}}">
+                                                <i class="zmdi zmdi-notifications"></i>Change Password</a>
                                         </div>
                                     </div>
                                 </div>
@@ -190,16 +191,18 @@
             <aside class="menu-sidebar2 js-right-sidebar d-block d-lg-none">
                 <div class="logo">
                     <a href="#">
-                        <img src="images/icon/logo-white.png" alt="Cool Admin" />
+                        <img src="images/icon/ds.png" alt="" />
                     </a>
                 </div>
                 <div class="menu-sidebar2__content js-scrollbar2">
                     <div class="account2">
                         <div class="image img-cir img-120">
-                            <img src="" alt="" />
+                                <img src="{{asset('images/ichsan.jpeg')}}" alt="">
                         </div>
-                        <h4 class="name">Mulia Ichsan</h4>
+                        <h4 class="name">{{ Auth::user()->name }}</h4>
                       
+                        
+                        <a href="{{ url('admin/user/editpassword/'.Auth::user()->id)}}" class="btn btn-default btn-flat">Change Password</a>
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
                                         onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -212,20 +215,22 @@
                     <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
                             
-                            <li>
-                                <a href="/admin/meeting">
-                                    <i class="fas fa-shopping-basket"></i>Data Rapat</a>
-                            </li>
+                                <li>
+                                    <a href="/admin/meeting">
+                                        <i class="fas fa-shopping-basket"></i>Data Rapat</a>
+                                </li>
 
-                            <li>
-                                <a href="/admin/employee">
-                                    <i class="fas fa-shopping-basket"></i>Data Karyawan</a>
-                            </li>
-
-                            <li>
-                                <a href="/admin/user">
-                                    <i class="fas fa-shopping-basket"></i>Data User</a>
-                            </li>
+                                <li>
+                                    <a href="/admin/employee">
+                                        <i class="fas fa-shopping-basket"></i>Data Karyawan</a>
+                                </li>
+                            @if (Auth::user()->is_admin())
+                                <li>
+                                    <a href="/admin/user">
+                                        <i class="fas fa-shopping-basket"></i>Data User</a>
+                                </li>
+                            @endif
+                            
                             
                         </ul>
                     </nav>

@@ -50,7 +50,7 @@
                                 </button>
                             <button class="item" data-toggle="modal" data-target="#edit" title="Edit" data-nama="{{$value->nama_karyawan}}" data-empemail="{{$value->email}}" data-emalamat="{{$value->alamat}}" data-empid="{{$value->id_karyawan}}">
                                     <i class="zmdi zmdi-edit"></i>
-                                </button>
+                            </button>
                                 <form method="post" action="{{ route('employee.destroy', $value->id_karyawan) }}">
                                     {{ method_field('DELETE') }} {{ csrf_field() }}
                                     <button class="item js-submit-confirm" data-toggle="tooltip" type="submit" data-placement="top" title="Delete">

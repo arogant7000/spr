@@ -94,21 +94,7 @@
         modal.find('.modal-body #waktu1').val(waktu);
     });
 
-    $('#edit').on('show.bs.modal', function (event){
-        var button = $(event.relatedTarget)
-        var perihal = button.data('perihal')
-        var tempat = button.data('tempat')
-        var waktu = button.data('waktu')
-        var id_meeting = button.data('meetid')
-        console.log(perihal);
-
-        var modal = $(this);
-        
-        modal.find('.modal-body #id_meeting').text(id_meeting)
-        modal.find('.modal-body #perihal').text(perihal);
-        modal.find('.modal-body #tempat').text(tempat);
-        modal.find('.modal-body #waktu1').text(waktu);
-    });
+   
 
  </script>
 
