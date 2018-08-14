@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-md-12">
         <!-- DATA TABLE -->
-        <h3 class="title-5 m-b-35">DATA RAPAT</h3>
+        <h3 class="title-5 m-b-35"> <i class="zmdi zmdi-assignment-o"></i> DATA RAPAT</h3>
         <div class="table-data__tool">
             <div class="table-data__tool-left">
                 
@@ -19,7 +19,7 @@
             <div class="table-data__tool-right">
                 
                 <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#add">
-                    <i class="zmdi zmdi-plus"></i>add item</button>
+                    <i class="zmdi zmdi-plus"></i>Tambah Jadwal</button>
             </div>
         </div>
         <div class="table-responsive m-b-40">

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Meeting;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -11,10 +11,8 @@ class AppController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
+
 
     /**
      * Show the application dashboard.
@@ -24,5 +22,12 @@ class AppController extends Controller
     public function indexAdmin()
     {
       return view('admin/index');
+    }
+
+    public function index()
+    {
+
+        $meeting =  Meeting::orderBy('updated_at','DESC')->limit(1)->get();
+        return view('home', compact('meeting'));
     }
 }

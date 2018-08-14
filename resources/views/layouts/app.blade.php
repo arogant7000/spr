@@ -14,7 +14,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Event Asia</title>
+    <title>{{ config('app.name', 'ALOUH FUTSAL') }}</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 
@@ -38,14 +38,14 @@
                 <div class="header-wrap">
                     <div class="header-top d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="#home"><img src="img/logo.png" alt=""></a>
+                        <a href="#home"><img src="{{ url('images/icon/ds.png')}}" alt=""></a>
                         </div>
                         <div class="main-menubar d-flex align-items-center">
                             <nav class="hide">
                                 <a href="#home">Home</a>
-                                <a href="#functionalities">Functionalities</a>
-                                <a href="#speaker">Speaker</a>
-                                <a href="#upcoming">Upcoming event</a>
+                                <a href="#speaker">Creator</a>
+                                <a href="#upcoming">Event</a>
+                                <a href="/login">Login</a>
                             </nav>
                             <div class="menu-bar"><span class="lnr lnr-menu"></span></div>
                         </div>
@@ -61,21 +61,17 @@
 			<footer class="footer-area section-gap">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-3  col-md-12">
+						<div class="col-lg-4  col-md-12">
 							<div class="single-footer-widget">
-								<h6>Top Products</h6>
+								<h6>Link Resmi</h6>
 								<ul class="footer-nav">
-									<li><a href="#">Managed Website</a></li>
-									<li><a href="#">Manage Reputation</a></li>
-									<li><a href="#">Power Tools</a></li>
-									<li><a href="#">Marketing Service</a></li>
+									<li><a href="#">Diskominfotik</a></li>
 								</ul>
 							</div>
 						</div>
-						<div class="col-lg-6  col-md-12">
+						<div class="col-lg-8  col-md-12">
 							<div class="single-footer-widget newsletter">
 								<h6>Newsletter</h6>
-								<p>You can trust us. we only send promo offers, not a single spam.</p>
 								<div id="mc_embed_signup">
 									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
 
@@ -96,34 +92,19 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-3  col-md-12">
-							<div class="single-footer-widget mail-chimp">
-								<h6 class="mb-20">Instragram Feed</h6>
-								<ul class="instafeed d-flex flex-wrap">
-									<li><img src="img/i1.jpg" alt=""></li>
-									<li><img src="img/i2.jpg" alt=""></li>
-									<li><img src="img/i3.jpg" alt=""></li>
-									<li><img src="img/i4.jpg" alt=""></li>
-									<li><img src="img/i5.jpg" alt=""></li>
-									<li><img src="img/i6.jpg" alt=""></li>
-									<li><img src="img/i7.jpg" alt=""></li>
-									<li><img src="img/i8.jpg" alt=""></li>
-								</ul>
-							</div>
-						</div>
+						
 					</div>
 
 					<div class="row footer-bottom d-flex justify-content-between">
 						<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Mulia Ichsan</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>
 						<div class="col-lg-4 col-sm-12 footer-social">
 							<a href="#"><i class="fa fa-facebook"></i></a>
 							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-dribbble"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
+							<a href=""><i class="fa fa-instagram"></i></a>
 						</div>
 					</div>
 				</div>
@@ -186,7 +167,8 @@
                 var timeinterval = setInterval(updateClock, 1000);
                 }
     
-                var deadline = new Date("Aug 14, 2018 01:23:40").getTime();
+
+                var deadline = new Date("Sep 14, 2018 01:23:40").getTime();
                 initializeClock('clockdiv', deadline);
                 </script>
        
