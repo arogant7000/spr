@@ -1,123 +1,88 @@
 @extends('layouts.app')
+  @section('content')
+     
 
-@section('content')
-<!-- start banner Area -->
-<section class="banner-area relative" id="home">
-    <div class="overlay overlay-bg"></div>
-    <div class="container">
-            <div class="row fullscreen align-items-center justify-content-center" style="height: 700px;">
-                <div class="banner-content col-lg-6 col-md-12">
-                   @foreach($meeting as $value)
-                    <h1>
-                        {{$value->perihal}}
-                    </h1>
-
-                    <p id="demo"></p>
+    <main>
+           
+      <section>
+        
+          <h3 class="center" style="color: white;">Daftar Rapat</h3>
+            
+          @foreach ($meeting as $value)
+          <div class="list-meeting">
+                <div class="row valign-wrapper">
+                  <div class="col s1 center" style="width:10px;">
+                    <ul>
+                      <li class="number"> {{$value->id_meeting}} </li>
+                    </ul>
+                  </div>
+                  <div class="col s5">
+                    <ul>
+                    <li class="title-meeting">{{ $value->perihal }}</li>
+                        <li class="desc">
+                          <div class="row">
+                            <div class="col s2">Tempat</div>
+                            <div class="col s10">: {{$value->tempat}} </div>
+                          </div>
+                          <div class="row">
+                            <div class="col s2">Waktu</div>
+                            <div class="col s10">: 
+                              <span>{{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%A,%d %B %Y') }}</span>
+				                        <div>: {{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%H:%I') }} WIB</div>
+                            </div>
+                          </div>
+                        </li>
+                    </ul>
+                  </div>
+                  <div class="col s2">
+                      <ul>
+                          <li>Status Rapat : </li>
+                          <li class="center">
+                             <p id="status" style="font-size:20px; color: green; ">Selesai</p>
+                          </li>
+                      </ul>
+                    </div>
+                  <div class="col s4" id="timer" data-timer="{{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%b %d, %Y %H:%I:%S') }}" >
+                    <ul>
+                      <li>Rapat akan berlangsung dalam : </li>
+                      <li class="center" style="padding-right: 10px;">
+                          <div class="row center blue" style="border : 2px solid grey; border-radius:10px;" id="clockdiv">
+                              <div class="col s3">
+                                <span class="days" style="color: white; font-size: 28px;"></span>
+				                        <div style="color: white;">hari</div>
+                              </div>
+                              <div class="col s3">
+                                <span class="hours" style="color: white; font-size: 28px;"></span>
+				                        <div style="color: white;">jam</div>
+                              </div>
+                              <div class="col s3">
+                                <span class="minutes" style="color: white; font-size: 28px;"></span>
+				                        <div style="color: white;">menit</div>
+                              </div>
+                              <div class="col s3">
+                                <span class="seconds" style="color: white; font-size: 28px;"></span>
+				                        <div style="color: white;">detik</div>
+                              </div>
+                          </div>                      
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+          </div>
+          @endforeach
+      </section>
+      
+      
+      <div class="fixed-action-btn" id="floated">
+                    <a class="btn-floating btn-large black pulse">
+                      <i class="large material-icons">fingerprint</i>
+                    </a>
+                  
+                    <ul class="bottom">
+                           <li> <a class="btn-floating blue"><i class="material-icons">exit_to_app</i></a> Admin Login </li>       
+                    </ul>
                     
-                <div class="row clock_sec d-flex flex-row justify-content-between" data-waktu="{{$value->waktu}}" id="clockdiv">
-                        <div class="clockinner">
-                            <span class="days"></span>
-                            <div class="smalltext">Days</div>
-                        </div>
-                        <div class="clockinner">
-                            <span class="hours"></span>
-                            <div class="smalltext">Hours</div>
-                        </div>
-                        <div class="clockinner">
-                            <span class="minutes"></span>
-                            <div class="smalltext">Minutes</div>
-                        </div>
-                        <div class="clockinner">
-                            <span class="seconds"></span>
-                            <div class="smalltext">Seconds</div>
-                        </div>
+      </div>
+    </main>
 
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-    </div>
-</section>
-<!-- End banner Area -->
-
-<!-- Start events Area -->
-<section class="events-area section-gap" id="upcoming">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pb-80 header-text">
-                <h1>Events</h1>
-            </div>
-        </div>
-        
-        <div class="row no-padding">
-            
-            <div class="col-lg-6 col-sm-6">
-                <div class="single-events row no-padding">
-                    <div class="col-lg-4">
-                        <img src="" alt="">
-                    </div>
-                    <div class="col-lg-7 details">
-                        <a href="#">
-                            <h4>Judul Event</h4>
-                        </a>
-                        <p>
-                            descripsi acara
-                        </p>
-                        <p class="meta"><span class="lnr lnr-bubble"></span> <span class="likes">tanggal</span></p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 col-sm-6">
-                <div class="single-events row no-padding">
-                    <div class="col-lg-4">
-                        <img src="" alt="">
-                    </div>
-                    <div class="col-lg-7 details">
-                        <a href="#">
-                            <h4>Judul Event</h4>
-                        </a>
-                        <p>
-                            descripsi acara
-                        </p>
-                        <p class="meta"><span class="lnr lnr-bubble"></span> <span class="likes">tanggal</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End events Area -->
-
-<!-- Start speaker Area -->
-<section class="speaker-area section-gap" id="speaker">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pb-80 header-text">
-                <h1>Web Programmer</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> labore  et dolore magna aliqua.
-                </p>
-            </div>
-        </div>
-        
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-4 col-md-4 speaker-wrap">
-                <div class="single-speaker">
-                    <div class="content">
-                        <a href="#" target="_blank">
-                          <div class="content-overlay"></div>
-                        <img class="content-image img-fluid d-block mx-auto" src="{{asset('images/ichsan.jpeg')}}" alt="">
-                              <div class="content-details fadeIn-bottom"></div>
-                        </a>
-                     </div>
-                </div>
-                  <h2>Mulia Ichsan</h2>
-                  <p>Mahasiswa Politeknik Negeri Lhokseumawe</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-<!-- End speaker Area -->
-@endsection
+    @endsection

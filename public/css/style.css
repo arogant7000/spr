@@ -1,0 +1,52 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  --background-image: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: right top;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+
+
+#floated {
+  padding-bottom: 60px;
+}
+
+nav .nav-wrapper {
+  height: 70px; 
+  box-shadow: 0px 1px 10px grey;
+}
+
+.list-meeting{
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px grey;
+  background-color: #FFFFFF; 
+  margin-left: 30px; 
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+.list-meeting .row{
+  margin-bottom: auto;
+}
+
+.list-meeting .number{
+  font-size: 40px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.list-meeting .title-meeting{
+  font-size: 32px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.list-meeting .desc{
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
