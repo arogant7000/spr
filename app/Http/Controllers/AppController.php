@@ -27,7 +27,7 @@ class AppController extends Controller
     public function index()
     {
 
-        $meeting =  Meeting::orderBy('updated_at','DESC')->limit(1)->get();
+        $meeting =  Meeting::orderBy('updated_at','DESC')->paginate(3);
         return view('home', compact('meeting'));
     }
 }
