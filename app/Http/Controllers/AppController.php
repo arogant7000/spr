@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Meeting;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AppController extends Controller
 {
@@ -26,8 +27,7 @@ class AppController extends Controller
 
     public function index()
     {
-
-        $meeting =  Meeting::orderBy('updated_at','DESC')->paginate(3);
+        $meeting =  Meeting::where('waktu', '>', Carbon::now()->subHours(1)->toDateTimeString())->orderBy('waktu','ASC')->paginate(3);
         return view('home', compact('meeting'));
     }
 }

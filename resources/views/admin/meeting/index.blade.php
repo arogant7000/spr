@@ -42,7 +42,7 @@
                             <span class="block-email">{{$value->perihal}}</span>
                         </td>
                         <td class="desc">{{$value->tempat}}</td>
-                        <td>{{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%A, %d %B %Y %H:%I') }}</td>
+                        <td>{{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%A, %d %B %Y %H:%M') }}</td>
                         <td>
                             <div class="table-data-feature">
                             <button class="item" data-toggle="modal" data-target="#show" data-meetid="{{$value->id_meeting}}" data-perihal="{{$value->perihal}}" data-tempat="{{$value->tempat}}" data-waktu="{{  Carbon\Carbon::createFromTimestamp(strtotime($value->waktu))->formatLocalized('%A, %d %B %Y %H:%I') }}">

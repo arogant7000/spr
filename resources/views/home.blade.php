@@ -5,7 +5,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-  
+  <title>Sistem Penjadwalan Rapat</title>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
@@ -28,14 +28,16 @@
            
       <section>
         
-          <h3 class="center" style="color: black;">Daftar Rapat</h3>
-          
+          <h3 class="center" style="color: black; margin-top:50px; margin-bottom:30px;">Daftar Rapat</h3>
+         @php
+             $no=1;
+         @endphp
           @foreach ($meeting as $key => $item)
           <div class="list-meeting">
                 <div class="row valign-wrapper">
                   <div class="col s1 center" style="width:10px;">
                     <ul>
-                      <li class="number">1</li>
+                      <li class="number"> {{$no++}} </li>
                     </ul>
                   </div>
                   <div class="col s5">
@@ -49,8 +51,8 @@
                           <div class="row">
                             <div class="col s2">Waktu</div>
                             <div class="col s10">: 
-                                <span>{{  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%A,%d %B %Y') }}</span>
-                                <div>: {{  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%H:%I') }} WIB</div>
+                                <span>{{  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%A, %d %B %Y') }}</span>
+                                <div>: {{  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%H:%M') }} WIB</div>
                             </div>
                           </div>
                         </li>
@@ -60,17 +62,21 @@
                       <ul>
                           <li>Status Rapat : </li>
                           <li class="center">
-                             <p id="status">
-                              ONLINE
+                            <div class="row center" style="margin-top:10px;  border : 1px solid grey; border-radius:2px; box-shadow: 5px 5px 5px grey; background-color: red; /* For browsers that do not support gradients */
+                            background-image: linear-gradient(to bottom right, red, purple); ">
+                             <p id="status" style="color:yellow; font-size:18px;">
+                                Menunggu
                             </p>
+                          </div>
                           </li>
                       </ul>
                     </div>
                   <div class="col s4" id="timer-{{$key}}">
                     <ul>
-                      <li>Rapat akan berlangsung dalam : </li>
+                      <li style="margin-bottom:10px;">Rapat akan berlangsung dalam : </li>
                       <li class="center clockdiv-{{$key}}"  style="padding-right: 10px;">
-                          <div class="row center blue" style="border : 2px solid grey; border-radius:10px;" >
+                          <div class="row center" style="border : 1px solid grey; border-radius:2px; box-shadow: 5px 5px 5px grey; background-color: red; /* For browsers that do not support gradients */
+                          background-image: linear-gradient(to bottom right, red, purple); " >
                               <div class="col s3">
                               <span class="days" style="color: white; font-size: 28px;"></span>
 				                        <div style="color: white;">hari</div>
@@ -103,17 +109,21 @@
                     </a>
                   
                     <ul class="bottom">
-                           <li> <a class="btn-floating blue"><i class="material-icons">exit_to_app</i></a> Admin Login </li>       
+                           <li> <a href="/admin" class="btn-floating blue"><i class="material-icons">exit_to_app</i></a> Admin Login </li>       
                     </ul>
                     
       </div>
+
+
+      <ul class="pagination center">
+         {{ $meeting->links() }}
+        </ul>
     </main>
 
-    <footer class="page-footer blue accent-3">
+    <footer class="page-footer" style="background-color: blue;   background-image: linear-gradient(to top right, black, blue);">
             <div class="container">
                   <p class="center">
-                    Design by
-                    <a href="" style="color:red;" class="">Mulia Ichsan</a>
+                    Copyright © 2018 Diskominfotik. All rights reserved. Template by <a href="/" style="color:RED; font-style:italic; font-weight:bold;">Mulia Ichsan</a>
                   </p>
             </div>
 
@@ -134,9 +144,17 @@
           $(this).find('.hours').text(event.strftime('%H'));
           $(this).find('.minutes').text(event.strftime('%M'));
           $(this).find('.seconds').text(event.strftime('%S'));
+        }).on('finish.countdown', function() {
+          $("#status").hide();
         });
       @endforeach  
 
+    </script>
+
+    <script language="javascript" type="text/javascript">
+      $(document).ready(function() {
+          setInterval("location.reload(true)", 300000);
+      });   
     </script>
   </body>
 </html>

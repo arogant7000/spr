@@ -47,9 +47,9 @@ class MeetingController extends Controller
     {
 
         $input = $request->all();
-        $date = str_replace("-", "", $input['waktu']);
-        $input['waktu'] = Carbon::parse($date)->format('Y-m-d H:i:s');
-        $request->replace($input);
+        //$date = str_replace("-", "", $input['waktu']);
+        //$input['waktu'] = Carbon::parse($date)->format('Y-m-d H:i:s');
+        //$request->replace($input);
 
         Meeting::create($input);
 
@@ -110,9 +110,9 @@ class MeetingController extends Controller
     {
         $input = $request->all();
         $meeting = Meeting::findOrFail($request->id_meeting);
-        $date = str_replace("-", "", $input['waktu']);
-        $input['waktu'] = Carbon::parse($date)->format('Y-m-d H:i:s');
-        $request->replace($input);
+        //$date = str_replace("-", "", $input['waktu']);
+        //$input['waktu'] = Carbon::parse($date)->format('Y, m, d, H, i, s');
+        //$request->replace($input);
         
         $meeting->update($input);
 
