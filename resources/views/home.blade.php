@@ -65,7 +65,11 @@
                             <div class="row center" style="margin-top:10px;  border : 1px solid grey; border-radius:2px; box-shadow: 5px 5px 5px grey; background-color: red; /* For browsers that do not support gradients */
                             background-image: linear-gradient(to bottom right, red, purple); ">
                              <p id="status" style="color:yellow; font-size:18px;">
-                                Menunggu
+                              @if(date("Y-m-d H:i:s") > date("Y-m-d H:i:s", strtotime($item->waktu))  )
+                              Selesai
+                              @else
+                              Menunggu
+                              @endif
                             </p>
                           </div>
                           </li>
