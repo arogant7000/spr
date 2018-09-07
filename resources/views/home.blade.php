@@ -51,7 +51,22 @@
                           <div class="row">
                             <div class="col s2">Waktu</div>
                             <div class="col s10">: 
-                                <span>{{  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%A, %d %B %Y') }}</span>
+                                <span>
+                                  @if (  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%A') == "Monday" )
+                                      Senin
+                                  @elseif (  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%A') == "Tuesday" )
+                                      Selasa
+                                  @elseif (  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%A') == "Wednesday" )
+                                      Rabu
+                                  @elseif (  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%A') == "Thursday" )
+                                      Kamis  
+                                  @elseif (  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%A') == "Friday" )
+                                      Jumat   
+                                  @elseif (  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%A') == "Saturday" )
+                                      Sabtu       
+                                  @endif
+                                  
+                                  ,{{  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized(' %d %B %Y') }}</span>
                                 <div>: {{  Carbon\Carbon::createFromTimestamp(strtotime($item->waktu))->formatLocalized('%H:%M') }} WIB</div>
                             </div>
                           </div>
@@ -66,11 +81,15 @@
                             background-image: linear-gradient(to bottom right, red, purple); ">
                              <p id="status" style="color:yellow; font-size:18px;">
                               @if(date("Y-m-d H:i:s") > date("Y-m-d H:i:s", strtotime($item->waktu))  )
-                              Selesai
+                                <p id="status" style="color:green; font-size:18px;">
+                                  Selesai
+                                </p>
                               @else
-                              Menunggu
+                                <p id="status" style="color:yellow; font-size:18px;">
+                                  Menunggu
+                                </p>
                               @endif
-                            </p>
+                            
                           </div>
                           </li>
                       </ul>
